@@ -12,8 +12,8 @@ export default function SideNav(props) {
     .filter(({ name }) => name.toLowerCase().includes(searchVal)) // Filter by search term
 
   return (
-    <nav className={' ' + (!showSideMenu ? ' open' : '')}>
-      <div className={'header' + (!showSideMenu ? ' open' : '')}>
+    <nav className={' ' + (showSideMenu ? ' open' : '')}>
+      <div className={'header' + (showSideMenu ? ' open' : '')}>
         <button onClick={handleSideMenu} className="open-nav-button">
           <i class="fa-solid fa-arrow-left"></i>
         </button>
@@ -31,7 +31,8 @@ export default function SideNav(props) {
           <button
             onClick={() => {
               setSelectedPokemon(originalIdx)
-              console.log(originalIdx) //-> used for debugging
+              handleSideMenu()
+              // console.log(originalIdx) //-> used for debugging
             }}
             className={
               'nav-card ' +
